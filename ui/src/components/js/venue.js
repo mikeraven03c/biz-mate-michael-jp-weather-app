@@ -1,4 +1,5 @@
 import { api } from "src/boot/axios";
+import { Notify } from "quasar";
 export class Venue {
   constructor() {
     /** @type {Array<Object>} */
@@ -10,6 +11,11 @@ export class Venue {
       this.venues = response.data.results
       success ? success(response.data) : false
     }).catch(error => {
+      Notify.create({
+        message: 'There is error encounter while fetching the api.',
+        color: 'red-8',
+        position: "bottom-right"
+      })
       console.error(error)
     })
   }

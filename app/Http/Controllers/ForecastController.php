@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\DataTransferObject\ForecastData;
 use App\DataTransferObject\PlaceForecastData;
 use App\Interfaces\WeatherInterface;
-use App\Models\Forecast;
 
 class ForecastController
 {

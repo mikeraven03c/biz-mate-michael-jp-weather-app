@@ -1,4 +1,6 @@
 import { api } from "src/boot/axios";
+import { Notify } from 'quasar'
+
 export class Forecast {
   constructor() {
     /** @type object */
@@ -17,8 +19,16 @@ export class Forecast {
       this.dailyList = groupForecastByDt(list)
 
       success ? success(response.data) : false
+
     }).catch(error => {
+      Notify.create({
+        message: 'There is error encounter while fetching the api.',
+        color: 'red-8',
+        position: "bottom-right"
+      })
       console.error(error)
+
+
     })
   }
 
@@ -42,6 +52,11 @@ export class Forecast {
 
       success ? success(response.data) : false
     }).catch(error => {
+      Notify.create({
+        message: 'There is error encounter while fetching the api.',
+        color: 'red-8',
+        position: "bottom-right"
+      })
       console.error(error)
     })
   }
